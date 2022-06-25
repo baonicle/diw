@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c1483509eb.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/movie-page.css">
+  <title>Movie Search Result</title>
+</head>
+
+<body>
+  <!-- nav -->
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <li class="nav-item" id="nav-home">
+      <a class="nav-link active" aria-current="page" href="search.html">Home</a>
+    </li>
+    <ul class="nav">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="nav-list">
+
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.amazon.com/Prime-Video/b?node=2676882011">Stream Now</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.fandango.com">Buy Tickets</a>
+          </li>
+
+        </div>
+      </nav>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <!-- Selected movie information -->
+    <section class="selected-movie">
+      <div class="title">
+        <h1 class="display-5 fw-bold" id="movieTitle"></h1>
+        <button id="favorites"><i class="fa-regular fa-heart" id="favoritesIcon" style="font-size:7vh"></i></button>
+      </div>
+
+      <figure id="trailer-container">
+        <iframe id="trailers" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </figure>
+
+      <section class="movie-info">
+
+        <!-- Movie Description -->
+        <article id='result_background' class="description">
+          <h1>Description</h1>
+          <p id="movieDescrip"></p>
+        </article>
+
+        <!-- Movie Details (rating, cast, reviews, etc.) -->
+        <section class="movie-details">
+          <h2 id="movie_rating">MPAA Rating: </h2>
+          <article class="cast-list">
+            <h2>Cast</h2>
+            <ul id="movie_cast"></ul>
+            </acticle>
+        </section>
+      </section>
+    </section>
+
+    <!-- Similar movie suggestions -->
+    <aside class="similar-movies">
+      <h2>Movie Suggestions</h2>
+      <div class="similar-posters"></div>
+    </aside>
+  </main>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/movie-result.js"></script>
+</body>
+
+</html>
