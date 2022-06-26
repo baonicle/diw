@@ -1,34 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Movie Search</title>
-</head> -->
+<html>
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/c1483509eb.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/movie-page.css">
-
-  <title>Movie Search Result</title>
-</head>
-
-<!-- <head>
-  <title>ProcurarFilmes</title>
+  <title>Procurar Filmes</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -43,40 +17,36 @@
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="./assets/css/style.css" />
 
-</head> -->
-
-
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 
 <body>
-  <main>
-    <!-- nav -->
-    <nav class="navbar navbar-dark bg-dark">
-      <ul class="nav">
+  <header class="navbar navbar-light bg-light justify-content-between">
+    <nav class="container">
+      <a class="navbar-brand active" aria-current="page" href="index.html">Filmes Populares</a>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="search.html">Home</a>
-        </li>
 
-        <li class="search-bar">
-          <form class="d-flex">
-            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button id="searchBtn" class="btn btn-primary btn-lg landing-btn" type="submit">Search</button>
-          </form>
-        </li>
-
-      </ul>
+      <form class="d-flex">
+        <input id="searchInput" class="form-control" type="search" placeholder="Busca" aria-label="Search">
+        <button id="searchBtn" class="btn btn-primary" type="submit">Buscar</button>
+      </form>
     </nav>
-    <!-- jumbotron -->
+  </header>
+
+
+  <main>
+
     <div id="pop" class="p-5 mb-4 rounded-3">
-      <h1 class="display-5 fw-bold">The Movie Database</h1>
+      <h1 class="display-5 fw-bold">Resultados</h1>
     </div>
 
-    <h2>Search Results</h2>
 
     <!-- container for results -->
-    <div id="searchResults" class="container"></div>
+    <section class="movies cards" id="searchResults">
+
+    </section>
+
   </main>
 </body>
 

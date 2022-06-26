@@ -17,9 +17,10 @@ searchBtn.on('click', async function (event) {
   event.preventDefault();
 
   let movieName = $('#searchInput').val();
+
   let movieResult = await movieLookup(movieName); // Movie data for movie search
 
-  displaySearchResults(movieResult.results.slice(0, 20), searchImages);
+  await displaySearchResults(movieResult.results.slice(0, 20), searchImages);
 })
 
 // Param URL and api_key + any parameters
@@ -56,19 +57,33 @@ async function movieIDLookup(movie_id) {
   return apiRequest(requestUrl)
 }
 
-function displaySearchResults(movieResult, container) {
+async function displaySearchResults(movieResult, container) {
   container.empty();
   for (var i = 0; i < movieResult.length; i++) {
-    if (movieResult[i].poster_path != null) {
-      let imageProperties = {
-        src: 'https://image.tmdb.org/t/p/' + 'w185' + movieResult[i].poster_path,
-        alt: movieResult[i].title
-      }
-      let linkParams = jQuery.param({ id: movieResult[i].id })
-      $link = $("<a>", { href: "movie-page.html?" + linkParams })
-      $img = $('<img>', imageProperties)
+    let movieDetail = await movieIDLookup(movieResult[i].id)
 
-      container.append($link.append($img));
+    if (movieDetail.poster_path != null) {
+      let imageProperties = {
+        src: 'https://image.tmdb.org/t/p/' + 'w185' + movieDetail.poster_path,
+        alt: movieDetail.title
+      }
+      let linkParams = jQuery.param({ id: movieDetail.id })
+      $div = $("<div>", { "class": "grid-item card" })
+      $detail = $("<a>", { href: "movie-page.html?" + linkParams, text: "Mais detalhes" })
+      $film_page = $("<a>", { href: movieDetail.homepage, text: "Pagina do filme" })
+      $img = $('<img>', imageProperties)
+      $title = $('<h4>', { "text": movieDetail.title })
+      $vote_average = $('<p>', { "text": "Nota: " + movieDetail.vote_average })
+      $date = $('<p>', { "text": "Data de lançamento: " + movieDetail.release_date })
+
+      $div.append($img)
+      $div.append($title)
+      $div.append($vote_average)
+      $div.append($date)
+      $div.append($detail)
+      $div.append($film_page)
+
+      container.append($div);
     }
   }
 }

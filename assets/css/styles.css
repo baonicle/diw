@@ -1,0 +1,233 @@
+/* Flex styles -------------------------------------------------*/
+header {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 700px) {
+    .leading {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+/* Grid styles -------------------------------------------------*/
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 35px;
+}
+
+
+/* Generic styles ----------------------------------------------*/
+body {
+    font-family: 'Helvetica', sans-serif;
+
+}
+
+header {
+    padding: 25px;
+    font-size: 2em;
+    /* color: white; */
+    /* background-color: #332; */
+}
+
+.logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.cards {
+    max-width: 960px;
+    margin: 0 auto 35px;
+}
+
+article {
+    position: relative;
+}
+
+.article-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.article-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(59, 96, 199, 0.678);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 2;
+    padding: 10 px;
+}
+
+/* Navbar format settings */
+.navbar {
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.navbar-toggler {
+    width: min-content;
+}
+
+.nav {
+    text-align: end;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-link {
+    color: white;
+    font-size: x-large;
+}
+
+.nav-link:hover {
+    color: rgba(35, 33, 134, 0.466);
+}
+
+/* Main body section */
+.content {
+    display: flex;
+}
+
+.title {
+    display: flex;
+    padding-left: 3vw;
+}
+
+#movieTitle {
+    font-size: 7vh;
+    padding-right: 3vw;
+}
+
+#favorites {
+    background: none;
+    border: none;
+}
+
+#favorites:focus {
+    outline: none;
+}
+
+.fa-heart {
+    color: white;
+}
+
+/* Main section (Movie the user is currently viewing) */
+.selected-movie {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid white;
+}
+
+#trailers {
+    width: 99%;
+    margin-left: .5%;
+    height: 40vw;
+}
+
+.movie-info {
+    flex-basis: 30%;
+    display: flex;
+}
+
+.description {
+    flex-basis: 70%;
+    padding: 2%;
+}
+
+.movie-details {
+    flex-basis: 30%;
+    border-left: 2px solid white;
+    padding: 2%;
+    flex-direction: column;
+}
+
+#movie_rating {
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+
+.cast-list {
+    flex-direction: column;
+    text-align: center;
+}
+
+.cast-list h2 {
+    border-bottom: 2px solid white;
+    width: 100%;
+}
+
+#movie_cast {
+    list-style: none;
+    line-height: 2;
+}
+
+/* Aside section (Similar movie suggestions) */
+.similar-movies {
+    flex-basis: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.similar-posters img {
+    width: 50%;
+    padding: 2%;
+}
+
+.similar-posters img:hover {
+    padding: 0;
+}
+
+/* Responsive layout settings */
+@media screen and (max-width: 992px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .movie-info {
+        flex-direction: column;
+    }
+
+    #trailers {
+        width: 98vw;
+        height: 60vw;
+    }
+
+    .title {
+        justify-content: space-between;
+        padding: 0 4%;
+    }
+
+    .selected-movie {
+        border: none;
+    }
+
+    .movie-details {
+        border: none;
+    }
+
+    .navbar {
+        padding-top: 2vh;
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+}

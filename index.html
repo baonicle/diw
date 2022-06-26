@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="pt">
+<!DOCTYPE html>
+<html>
 
 <head>
   <title>Filmes Populares</title>
@@ -17,86 +17,51 @@
     crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/movie-page.css">
 
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-
 <body>
-
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <div class="container">
+  <header class="navbar navbar-light bg-light justify-content-between">
+    <nav class="container">
       <a class="navbar-brand">Filmes Populares</a>
 
       <a id='landingBtn' class="btn btn-primary btn-lg landing-btn" href="search.html" role="button">
         Procurar filme
       </a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <div class="container mt-3">
-    <div class="row movies">
-      <!-- Movies will be loaded into this space -->
-    </div>
-  </div>
 
-  <script type="text/javascript">
-    var api_key = "1cc996daf96a563bf59d05bf3f20b873"; //TODO insert your unique API KEY here
-    var api_url = "https://api.themoviedb.org/3/movie/popular?api_key=" + api_key;
-    $.getJSON(api_url, function (data) {
+  <main>
+    <section class="movies cards">
+    </section>
 
-      $.each(data.results, function (i, item) {
-        var posterFullUrl = "https://image.tmdb.org/t/p/w185//" + item.poster_path;
-        $("<div class='col-3 mb-1'><img src='" + posterFullUrl + "'><h5>" + item.title + "</h5></div>").appendTo(".movies");
+    <script type="text/javascript">
+      var api_key = "?api_key=1cc996daf96a563bf59d05bf3f20b873";
+      var api_base = "https://api.themoviedb.org/3/movie/"
+      var api_popularity = "popular";
+      $.getJSON(api_base + api_popularity + api_key, function (data) {
+
+        $.each(data.results, function (i, item) {
+
+          $.getJSON(api_base + item.id + api_key, function (item) {
+            var posterFullUrl = "https://image.tmdb.org/t/p/w185//" + item.poster_path;
+
+            $("<div class='grid-item card'>"
+              + "<img src='" + posterFullUrl + "'>"
+              + "<h4>" + item.title + "</h4>"
+              + "<p> Nota: " + item.vote_average + "</p>"
+              + "<p> Data de lançamento: " + item.release_date + "</p>"
+              + "<a href=" + "movie-page.html?id=" + item.id + ">Mais detalhes</a>"
+              + "<a href=" + item.homepage + ">Pagina do filme</a>"
+              + "</div>").appendTo(".movies");
+          });
+
+        });
       });
-    });
-  </script>
-
+    </script>
+  </main>
 </body>
-
-<!--
-
-<head>
-  <!-- Required meta tags -- >
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -- >
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Custom CSS -- >
-  <link rel="stylesheet" href="./assets/css/landing.css" />
-  <title>The Movie Database</title>
-</head>
-
-<body>
-  <main role="main">
-
-    <!-- Main hero image -- >
-    <div class="main-hero">
-      <div class="container landing-header">
-        <h1 class="display-3">Find your next movie to watch</h1>
-        <h2>Search through thousands of movies to find the perfect title for any time</h2>
-
-        <p><a id='landingBtn' class="btn btn-primary btn-lg landing-btn" href="#" role="button">Start searching now</a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Credit for image -- >
-    Photo by <a
-      href="https://unsplash.com/@geoffreymoffett?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Geoffrey
-      Moffett</a> on <a
-      href="https://unsplash.com/s/photos/movie-theater?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-
-    <!-- JavaScript file -- >
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../project-1/assets/js/script.js"></script>
-
-</body>
-
--->
 
 </html>
